@@ -15,65 +15,389 @@ p.question {font-weight:bold; color:#000000; font-size:18px}
 p.tag {margin-left:10%;}
 </style>
 <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-<script src="http://jquery-csv.googlecode.com/git/src/jquery.csv.js"></script>
 </head>
 <body>
 	<div id="content">
 		<div id="text"><p class="intro">For the following statements select on a scale of 1 <em>(strongly disagree)</em> to 11 <em>(strongly agree)</em> how much the qualities of the team would affect your enjoyment when watching them play:</p>
 		<table style="width:80%; margin-left:auto; margin-right:auto;">
-		<tr><td><p class="question">1. Is Really Good:</p></td><td><input type="range" id="pythval" class="val-input" min="1" max="11" step="1"></td></tr>
-		<tr><td><p class="question">2. Plays Fast:</p></td><td><input type="range" id="tempoval" class="val-input" min="1" max="11" step="1"></td></tr>
-		<tr><td><p class="question">3. Plays Great Offense:</p></td><td><input type="range" id="offval" class="val-input" min="1" max="11" step="1"></td></tr>
-		<tr><td><p class="question">4. Plays Great Defense:</p></td><td><input type="range" id="defval" class="val-input" min="1" max="11" step="1"></td></tr>
-		<tr><td><p class="question">5. Shoots A Lot of Threes:</p></td><td><input type="range" id="threesval" class="val-input" min="1" max="11" step="1"></td></tr>
-		<tr><td><p class="question">6. Moves The Ball Well:</p></td><td><input type="range" id="assistsval" class="val-input" min="1" max="11" step="1"></td></tr>
-		<tr><td><p class="question">7. Shoots The Ball Well:</p></td><td><input type="range" id="efgval" class="val-input" min="1" max="11" step="1"></td></tr>
-		<tr><td><p class="question">8. Blocks A Lot of Shots:</p></td><td><input type="range" id="blocksval" class="val-input" min="1" max="11" step="1"></td></tr>
-		<tr><td><p class="question">9. Plays Man Defense:</p></td><td><input type="range" id="deftypeval" class="val-input" min="1" max="11" step="1"></td></tr>
-		<tr><td><p class="question">10. Plays Games With A Lot of Free Throws:</p></td><td><input type="range" id="ftrval" class="val-input" min="1" max="11" step="1"></td></tr>
+		<tr><td><p class="question">1. Is Really Good:</p></td><td><input type="range" id="pythval" class="val-input" min="0" max="10" step="1"></td></tr>
+		<tr><td><p class="question">2. Plays Fast:</p></td><td><input type="range" id="tempoval" class="val-input" min="0" max="10" step="1"></td></tr>
+		<tr><td><p class="question">3. Plays Great Offense:</p></td><td><input type="range" id="offval" class="val-input" min="0" max="10" step="1"></td></tr>
+		<tr><td><p class="question">4. Plays Great Defense:</p></td><td><input type="range" id="defval" class="val-input" min="0" max="10" step="1"></td></tr>
+		<tr><td><p class="question">5. Shoots A Lot of Threes:</p></td><td><input type="range" id="threesval" class="val-input" min="0" max="10" step="1"></td></tr>
+		<tr><td><p class="question">6. Moves The Ball Well:</p></td><td><input type="range" id="assistsval" class="val-input" min="0" max="10" step="1"></td></tr>
+		<tr><td><p class="question">7. Shoots The Ball Well:</p></td><td><input type="range" id="efgval" class="val-input" min="0" max="10" step="1"></td></tr>
+		<tr><td><p class="question">8. Blocks A Lot of Shots:</p></td><td><input type="range" id="blocksval" class="val-input" min="0" max="10" step="1"></td></tr>
+		<tr><td><p class="question">9. Plays Man Defense:</p></td><td><input type="range" id="deftypeval" class="val-input" min="0" max="10" step="1"></td></tr>
+		<tr><td><p class="question">10. Plays Games With A Lot of Free Throws:</p></td><td><input type="range" id="ftrval" class="val-input" min="0" max="10" step="1"></td></tr>
 		</table>
 		<button id="submit-button" style="font-size: 20px; background: #ffa500; color: #333; border: 0; padding: 15px; display: block; margin: 20px auto; text-align: center; border-radius: 5px; font-family: proxima-nova, bitter, sans-serif;">FIND MY TEAM</button>
 		<div class="result-label" style="font-size: 30px; display: block; margin: 20px auto; text-align: center;">You should follow: <div id="result"></div></div>
+		<p class="tag">Want to find a specific team? Find it here and the site will show you the correct values. Just start typing in the results box to find your team. Note that there are 11^10 (almost 26 billion!) combinations for the sliders and only 352 Division I college basketball teams, so there are multiple combinations for most teams. The helper reveals the most accurate version of the sliders.</p>
+		<div class="helper" style="margin-left: auto; margin-right: auto; text-align: center;">
+			<input list="teams" class="team-input" id="helperteam">
+			<datalist id="teams">
+				<option value="Abilene Christian">
+				<option value="Air Force">
+				<option value="Akron">
+				<option value="Alabama">
+				<option value="Alabama A&amp;M">
+				<option value="Alabama St.">
+				<option value="Albany">
+				<option value="Alcorn St.">
+				<option value="American">
+				<option value="Appalachian St.">
+				<option value="Arizona">
+				<option value="Arizona St.">
+				<option value="Arkansas">
+				<option value="Arkansas Little Rock">
+				<option value="Arkansas Pine Bluff">
+				<option value="Arkansas St.">
+				<option value="Army">
+				<option value="Auburn">
+				<option value="Austin Peay">
+				<option value="Ball St.">
+				<option value="Baylor">
+				<option value="Belmont">
+				<option value="Bethune Cookman">
+				<option value="Binghamton">
+				<option value="Boise St.">
+				<option value="Boston College">
+				<option value="Boston University">
+				<option value="Bowling Green">
+				<option value="Bradley">
+				<option value="Brown">
+				<option value="Bryant">
+				<option value="Bucknell">
+				<option value="Buffalo">
+				<option value="Butler">
+				<option value="BYU">
+				<option value="Cal Poly">
+				<option value="Cal St. Bakersfield">
+				<option value="Cal St. Fullerton">
+				<option value="Cal St. Northridge">
+				<option value="California">
+				<option value="Campbell">
+				<option value="Canisius">
+				<option value="Central Arkansas">
+				<option value="Central Connecticut">
+				<option value="Central Michigan">
+				<option value="Charleston Southern">
+				<option value="Charlotte">
+				<option value="Chattanooga">
+				<option value="Chicago St.">
+				<option value="Cincinnati">
+				<option value="Clemson">
+				<option value="Cleveland St.">
+				<option value="Coastal Carolina">
+				<option value="Colgate">
+				<option value="College of Charleston">
+				<option value="Colorado">
+				<option value="Colorado St.">
+				<option value="Columbia">
+				<option value="Connecticut">
+				<option value="Coppin St.">
+				<option value="Cornell">
+				<option value="Creighton">
+				<option value="Dartmouth">
+				<option value="Davidson">
+				<option value="Dayton">
+				<option value="Delaware">
+				<option value="Delaware St.">
+				<option value="Denver">
+				<option value="DePaul">
+				<option value="Detroit">
+				<option value="Drake">
+				<option value="Drexel">
+				<option value="Duke">
+				<option value="Duquesne">
+				<option value="East Carolina">
+				<option value="East Tennessee St.">
+				<option value="Eastern Illinois">
+				<option value="Eastern Kentucky">
+				<option value="Eastern Michigan">
+				<option value="Eastern Washington">
+				<option value="Elon">
+				<option value="Evansville">
+				<option value="Fairfield">
+				<option value="Fairleigh Dickinson">
+				<option value="FIU">
+				<option value="Florida">
+				<option value="Florida A&amp;M">
+				<option value="Florida Atlantic">
+				<option value="Florida Gulf Coast">
+				<option value="Florida St.">
+				<option value="Fordham">
+				<option value="Fresno St.">
+				<option value="Furman">
+				<option value="Gardner Webb">
+				<option value="George Mason">
+				<option value="George Washington">
+				<option value="Georgetown">
+				<option value="Georgia">
+				<option value="Georgia Southern">
+				<option value="Georgia St.">
+				<option value="Georgia Tech">
+				<option value="Gonzaga">
+				<option value="Grambling St.">
+				<option value="Grand Canyon">
+				<option value="Green Bay">
+				<option value="Hampton">
+				<option value="Hartford">
+				<option value="Harvard">
+				<option value="Hawaii">
+				<option value="High Point">
+				<option value="Hofstra">
+				<option value="Holy Cross">
+				<option value="Houston">
+				<option value="Houston Baptist">
+				<option value="Howard">
+				<option value="Idaho">
+				<option value="Idaho St.">
+				<option value="Illinois">
+				<option value="Illinois Chicago">
+				<option value="Illinois St.">
+				<option value="Incarnate Word">
+				<option value="Indiana">
+				<option value="Indiana St.">
+				<option value="Iona">
+				<option value="Iowa">
+				<option value="Iowa St.">
+				<option value="IPFW">
+				<option value="IUPUI">
+				<option value="Jackson St.">
+				<option value="Jacksonville">
+				<option value="Jacksonville St.">
+				<option value="James Madison">
+				<option value="Kansas">
+				<option value="Kansas St.">
+				<option value="Kennesaw St.">
+				<option value="Kent St.">
+				<option value="Kentucky">
+				<option value="La Salle">
+				<option value="Lafayette">
+				<option value="Lamar">
+				<option value="Lehigh">
+				<option value="Liberty">
+				<option value="Lipscomb">
+				<option value="LIU Brooklyn">
+				<option value="Long Beach St.">
+				<option value="Longwood">
+				<option value="Louisiana Lafayette">
+				<option value="Louisiana Monroe">
+				<option value="Louisiana Tech">
+				<option value="Louisville">
+				<option value="Loyola Chicago">
+				<option value="Loyola Marymount">
+				<option value="Loyola MD">
+				<option value="LSU">
+				<option value="Maine">
+				<option value="Manhattan">
+				<option value="Marist">
+				<option value="Marquette">
+				<option value="Marshall">
+				<option value="Maryland">
+				<option value="Maryland Eastern Shore">
+				<option value="Massachusetts">
+				<option value="McNeese St.">
+				<option value="Memphis">
+				<option value="Mercer">
+				<option value="Miami FL">
+				<option value="Miami OH">
+				<option value="Michigan">
+				<option value="Michigan St.">
+				<option value="Middle Tennessee">
+				<option value="Milwaukee">
+				<option value="Minnesota">
+				<option value="Mississippi">
+				<option value="Mississippi St.">
+				<option value="Mississippi Valley St.">
+				<option value="Missouri">
+				<option value="Missouri St.">
+				<option value="Monmouth">
+				<option value="Montana">
+				<option value="Montana St.">
+				<option value="Morehead St.">
+				<option value="Morgan St.">
+				<option value="Mount St. Mary's">
+				<option value="Murray St.">
+				<option value="Navy">
+				<option value="Nebraska">
+				<option value="Nebraska Omaha">
+				<option value="Nevada">
+				<option value="New Hampshire">
+				<option value="New Mexico">
+				<option value="New Mexico St.">
+				<option value="New Orleans">
+				<option value="Niagara">
+				<option value="Nicholls St.">
+				<option value="NJIT">
+				<option value="Norfolk St.">
+				<option value="North Carolina">
+				<option value="North Carolina A&amp;T">
+				<option value="North Carolina Central">
+				<option value="North Carolina St.">
+				<option value="North Dakota">
+				<option value="North Dakota St.">
+				<option value="North Florida">
+				<option value="North Texas">
+				<option value="Northeastern">
+				<option value="Northern Arizona">
+				<option value="Northern Colorado">
+				<option value="Northern Illinois">
+				<option value="Northern Iowa">
+				<option value="Northern Kentucky">
+				<option value="Northwestern">
+				<option value="Northwestern St.">
+				<option value="Notre Dame">
+				<option value="Oakland">
+				<option value="Ohio">
+				<option value="Ohio St.">
+				<option value="Oklahoma">
+				<option value="Oklahoma St.">
+				<option value="Old Dominion">
+				<option value="Oral Roberts">
+				<option value="Oregon">
+				<option value="Oregon St.">
+				<option value="Pacific">
+				<option value="Penn">
+				<option value="Penn St.">
+				<option value="Pepperdine">
+				<option value="Pittsburgh">
+				<option value="Portland">
+				<option value="Portland St.">
+				<option value="Prairie View A&amp;M">
+				<option value="Presbyterian">
+				<option value="Princeton">
+				<option value="Providence">
+				<option value="Purdue">
+				<option value="Quinnipiac">
+				<option value="Radford">
+				<option value="Rhode Island">
+				<option value="Rice">
+				<option value="Richmond">
+				<option value="Rider">
+				<option value="Robert Morris">
+				<option value="Rutgers">
+				<option value="Sacramento St.">
+				<option value="Sacred Heart">
+				<option value="Saint Joseph's">
+				<option value="Saint Louis">
+				<option value="Saint Mary's">
+				<option value="Saint Peter's">
+				<option value="Sam Houston St.">
+				<option value="Samford">
+				<option value="San Diego">
+				<option value="San Diego St.">
+				<option value="San Francisco">
+				<option value="San Jose St.">
+				<option value="Santa Clara">
+				<option value="Savannah St.">
+				<option value="Seattle">
+				<option value="Seton Hall">
+				<option value="Siena">
+				<option value="SIU Edwardsville">
+				<option value="SMU">
+				<option value="South Alabama">
+				<option value="South Carolina">
+				<option value="South Carolina St.">
+				<option value="South Dakota">
+				<option value="South Dakota St.">
+				<option value="South Florida">
+				<option value="Southeast Missouri St.">
+				<option value="Southeastern Louisiana">
+				<option value="Southern">
+				<option value="Southern Illinois">
+				<option value="Southern Miss">
+				<option value="Southern Utah">
+				<option value="St. Bonaventure">
+				<option value="St. Francis NY">
+				<option value="St. Francis PA">
+				<option value="St. John's">
+				<option value="Stanford">
+				<option value="Stephen F. Austin">
+				<option value="Stetson">
+				<option value="Stony Brook">
+				<option value="Syracuse">
+				<option value="TCU">
+				<option value="Temple">
+				<option value="Tennessee">
+				<option value="Tennessee Martin">
+				<option value="Tennessee St.">
+				<option value="Tennessee Tech">
+				<option value="Texas">
+				<option value="Texas A&amp;M">
+				<option value="Texas A&amp;M Corpus Chris">
+				<option value="Texas Pan American">
+				<option value="Texas Southern">
+				<option value="Texas St.">
+				<option value="Texas Tech">
+				<option value="The Citadel">
+				<option value="Toledo">
+				<option value="Towson">
+				<option value="Troy">
+				<option value="Tulane">
+				<option value="Tulsa">
+				<option value="UAB">
+				<option value="UC Davis">
+				<option value="UC Irvine">
+				<option value="UC Riverside">
+				<option value="UC Santa Barbara">
+				<option value="UCF">
+				<option value="UCLA">
+				<option value="UMass Lowell">
+				<option value="UMBC">
+				<option value="UMKC">
+				<option value="UNC Asheville">
+				<option value="UNC Greensboro">
+				<option value="UNC Wilmington">
+				<option value="UNLV">
+				<option value="USC">
+				<option value="USC Upstate">
+				<option value="UT Arlington">
+				<option value="Utah">
+				<option value="Utah St.">
+				<option value="Utah Valley">
+				<option value="UTEP">
+				<option value="UTSA">
+				<option value="Valparaiso">
+				<option value="Vanderbilt">
+				<option value="VCU">
+				<option value="Vermont">
+				<option value="Villanova">
+				<option value="Virginia">
+				<option value="Virginia Tech">
+				<option value="VMI">
+				<option value="Wagner">
+				<option value="Wake Forest">
+				<option value="Washington">
+				<option value="Washington St.">
+				<option value="Weber St.">
+				<option value="West Virginia">
+				<option value="Western Carolina">
+				<option value="Western Illinois">
+				<option value="Western Kentucky">
+				<option value="Western Michigan">
+				<option value="Wichita St.">
+				<option value="William &amp; Mary">
+				<option value="Winthrop">
+				<option value="Wisconsin">
+				<option value="Wofford">
+				<option value="Wright St.">
+				<option value="Wyoming">
+				<option value="Xavier">
+				<option value="Yale">
+				<option value="Youngstown St.">
+			</datalist>
+			<button id="help-button" style="font-size: 20px; background: #ffa500; color: #333; border: 0; padding: 15px; display: block; margin: 20px auto; text-align: center; border-radius: 5px; font-family: proxima-nova, bitter, sans-serif;">HELP ME</button>
+		</div>
 		<p class="tag">Find your team created by John Templon (<a href="http://www.twitter.com/jtemplon">@jtemplon</a> and <a href="http://www.twitter.com/nybuckets">@nybuckets</a>)</p>
 		<p class="tag">You can find my notes and the code <a href="https://github.com/jtemplon/CBBTeamQuiz">on Github</a> too.</p>
 		</div></div>
 	</div>
 	<script type="text/javascript">
-	  function scoreit(){
-		var care_pyth = Number($('#pythval').val());
-		var care_tempo = Number($('#tempoval').val());
-		var care_off = Number($('#offval').val());
-		var care_def = Number($('#defval').val());
-		var care_threes = Number($('#threesval').val());
-		var care_assists = Number($('#assistsval').val());
-		var care_efg = Number($('#efgval').val());
-		var care_blocks = Number($('#blocksval').val());
-		var care_deftype = Number($('#deftypeval').val());
-		var care_ftr = Number($('#ftrval').val());
-		var data_tempo = [58.5489,63.1615,64.0473,64.9388,65.6999,66.3466,66.9998,67.6498,68.5204,69.8654,75.605];
-		var data_off = [87.6835,95.7191,98.081,100.4428,102.2548,104.1239,105.8654,107.9074,109.9202,112.7089,124.1281];
-		var data_def = [121.9034,112.472,110.4904,108.83,106.7687,105.2587,103.5013,101.9196,99.8268,96.5487,88.5141];
-		var data_pyth = [0.054052,0.172201,0.252574,0.323657,0.38041,0.464559,0.538204,0.618842,0.725464,0.816061,0.952006];
-		var data_efg = [42.1136,46.0534,46.8242,47.7891,48.7166,49.4294,50.095,51.1188,51.862,53.0928,58.9304];
-		var data_ftr = [58.9248,70.83529,74.51822,76.82108,79.0755,81.03484,83.02406,84.88582,87.86846,91.654,112.99407];
-		var data_blocks = [3.3951,5.8984,7.0106,7.9238,8.7736,9.5198,10.4377,11.2378,11.8999,13.4052,19.8723];
-		var data_assists = [37.247,44.7094,47.2222,48.784,50.0,51.1873,53.0201,54.4828,56.3397,58.4416,65.7754];
-		var data_deftype = [-9.2,-2.0,0.1,2.2,3.9,5.1,6.6,8.5,10.1,13.0,20.4];
-		var data_threes = [19.3489,26.7274,28.3843,29.9145,31.3148,32.656,34.2618,35.3615,37.1466,39.9373,47.809];
-		var ideal_pyth = data_pyth[care_pyth-1];
-		var ideal_tempo = data_tempo[care_tempo-1];
-		var ideal_off = data_off[care_off-1];
-		var ideal_def = data_def[care_def-1];
-		var ideal_threes = data_threes[care_threes-1];
-		var ideal_assists = data_assists[care_assists-1];
-		var ideal_efg = data_efg[care_efg-1];
-		var ideal_blocks = data_blocks[care_blocks-1];
-		var ideal_deftype = data_deftype[care_deftype-1];
-		var ideal_ftr = data_ftr[care_ftr-1];
-		// var result = ideal_pyth + ideal_off + ideal_def + ideal_threes + ideal_assists + ideal_efg + ideal_blocks + ideal_deftype + ideal_ftr + ideal_tempo
-		var top_team = "Default"
-		var top_score = 100
-		var cbb_2014_data = [
+	//this is the team data to use in both functions
+	var cbb_2014_data = [
 		  ["Abilene Christian",64.8612,94.6211,117.1028,0.079331,47.1985,90.56681,3.9642,49.1803,5.7,35.6125],
 		  ["Air Force",65.3168,98.0457,105.7671,0.294886,49.4831,81.07393,9.3679,60.6796,-2,41.9021],
 		  ["Akron",65.2297,104.2518,102.873,0.538204,50.2695,76.56617,10.5107,47.6015,10.7,37.1968],
@@ -426,8 +750,41 @@ p.tag {margin-left:10%;}
 		  ["Yale",65.0435,101.7396,100.4782,0.535806,46.1585,91.4536,12.6774,51.3081,6.6,30.6723],
 		  ["Youngstown St.",67.6206,106.7264,109.3048,0.431797,52.2222,81.07519,6.6485,59.1033,5,39.1358]
 		];
+		var data_tempo = [58.5489,63.1615,64.0473,64.9388,65.6999,66.3466,66.9998,67.6498,68.5204,69.8654,75.605];
+		var data_off = [87.6835,95.7191,98.081,100.4428,102.2548,104.1239,105.8654,107.9074,109.9202,112.7089,124.1281];
+		var data_def = [121.9034,112.472,110.4904,108.83,106.7687,105.2587,103.5013,101.9196,99.8268,96.5487,88.5141];
+		var data_pyth = [0.054052,0.172201,0.252574,0.323657,0.38041,0.464559,0.538204,0.618842,0.725464,0.816061,0.952006];
+		var data_efg = [42.1136,46.0534,46.8242,47.7891,48.7166,49.4294,50.095,51.1188,51.862,53.0928,58.9304];
+		var data_ftr = [58.9248,70.83529,74.51822,76.82108,79.0755,81.03484,83.02406,84.88582,87.86846,91.654,112.99407];
+		var data_blocks = [3.3951,5.8984,7.0106,7.9238,8.7736,9.5198,10.4377,11.2378,11.8999,13.4052,19.8723];
+		var data_assists = [37.247,44.7094,47.2222,48.784,50.0,51.1873,53.0201,54.4828,56.3397,58.4416,65.7754];
+		var data_deftype = [-9.2,-2.0,0.1,2.2,3.9,5.1,6.6,8.5,10.1,13.0,20.4];
+		var data_threes = [19.3489,26.7274,28.3843,29.9145,31.3148,32.656,34.2618,35.3615,37.1466,39.9373,47.809];
+	  function scoreit(){
+		var care_pyth = Number($('#pythval').val());
+		var care_tempo = Number($('#tempoval').val());
+		var care_off = Number($('#offval').val());
+		var care_def = Number($('#defval').val());
+		var care_threes = Number($('#threesval').val());
+		var care_assists = Number($('#assistsval').val());
+		var care_efg = Number($('#efgval').val());
+		var care_blocks = Number($('#blocksval').val());
+		var care_deftype = Number($('#deftypeval').val());
+		var care_ftr = Number($('#ftrval').val());
+		var ideal_pyth = data_pyth[care_pyth];
+		var ideal_tempo = data_tempo[care_tempo];
+		var ideal_off = data_off[care_off];
+		var ideal_def = data_def[care_def];
+		var ideal_threes = data_threes[care_threes];
+		var ideal_assists = data_assists[care_assists];
+		var ideal_efg = data_efg[care_efg];
+		var ideal_blocks = data_blocks[care_blocks];
+		var ideal_deftype = data_deftype[care_deftype];
+		var ideal_ftr = data_ftr[care_ftr];
+		var top_team = "Default"
+		var top_score = 100
+		//Go through each of the teams and see which ones matches best based on z-score amongst 10 compontents
 		for (var d=0;d<cbb_2014_data.length;d++){
-			//document.write(cbb_2014_data[d]);
 			var team_name = cbb_2014_data[d][0];
 			var team_score = +Math.abs(Number(cbb_2014_data[d][1])-ideal_tempo)/2.7
 		                 	 +Math.abs(Number(cbb_2014_data[d][2])-ideal_off)/6.7
@@ -439,7 +796,6 @@ p.tag {margin-left:10%;}
 		                     +Math.abs(Number(cbb_2014_data[d][8])-ideal_assists)/5.4
 		                     +Math.abs(Number(cbb_2014_data[d][9])-ideal_deftype)/5.9
 							 +Math.abs(Number(cbb_2014_data[d][10])-ideal_threes)/5.2;
-			//document.write(team_name, team_score)
 			if (team_score < top_score) {
 				top_score = team_score;
 		        top_team = team_name;
@@ -448,12 +804,63 @@ p.tag {margin-left:10%;}
 		$('#result').text(top_team);
 		$('.result-label').fadeIn();
 	  }
+	//This is the guy that makes the submit button work
 	 $('#submit-button').click(function(){
 		scoreit();
 		$('.val-input').keyup(scoreit);
-	}); 
+	 });
+	//This function assumes you're giving it a number and a list of numbers
+	function closestvalinlist(val, list){
+		var closest_index = 0;
+		var closest_distance = 1000;
+		for (var i=0;i<list.length;i++){
+			if (Math.abs(val-list[i]) < closest_distance){
+				closest_index = i;
+				closest_distance = Math.abs(Number(val)-list[i]);
+			}
+		}
+		return closest_index;
+	}
+	//This is the function for the help button that finds the right values for the sliders
+	function findvalues(){
+		var teamname = $('#helperteam').val();
+		for (var d=0;d<cbb_2014_data.length;d++){
+			if (teamname == cbb_2014_data[d][0]){
+				var teamdata = cbb_2014_data[d];
+			}
+		}
+		//Find the right values for each using our handy function above
+		var right_pyth = closestvalinlist(Number(teamdata[4]), data_pyth);
+		var right_tempo = closestvalinlist(Number(teamdata[1]), data_tempo);
+		var right_off = closestvalinlist(Number(teamdata[2]), data_off);
+		var right_def = closestvalinlist(Number(teamdata[3]), data_def);
+		var right_threes = closestvalinlist(Number(teamdata[10]), data_threes);
+		var right_assists = closestvalinlist(Number(teamdata[8]), data_assists);
+		var right_efg = closestvalinlist(Number(teamdata[5]), data_efg);
+		var right_blocks = closestvalinlist(Number(teamdata[7]), data_blocks);
+		var right_deftype = closestvalinlist(Number(teamdata[9]), data_deftype);
+		var right_ftr = closestvalinlist(Number(teamdata[6]), data_ftr);
+		//Now that you've found the right values, set the sliders and voila!
+		$('#pythval').val(right_pyth);
+		$('#tempoval').val(right_tempo);
+		$('#offval').val(right_off);
+		$('#defval').val(right_def);
+		$('#threesval').val(right_threes);
+		$('#assistsval').val(right_assists);
+		$('#efgval').val(right_efg);
+		$('#blocksval').val(right_blocks);
+		$('#deftypeval').val(right_deftype);
+		$('#ftrval').val(right_ftr);
+		$('#result').text(teamname);
+		$('.result-label').fadeIn();
+	}
+	//This is the guy that makes the help button work 
+	$('#help-button').click(function(){
+		findvalues();
+		$('.team-input').keyup(findvalues);
+	});
 	</script>
-
+	
 	<script type="text/javascript">
 
 	var _gaq = _gaq || [];
