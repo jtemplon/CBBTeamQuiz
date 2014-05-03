@@ -750,6 +750,7 @@ p.tag {margin-left:10%;}
 		  ["Yale",65.0435,101.7396,100.4782,0.535806,46.1585,91.4536,12.6774,51.3081,6.6,30.6723],
 		  ["Youngstown St.",67.6206,106.7264,109.3048,0.431797,52.2222,81.07519,6.6485,59.1033,5,39.1358]
 		];
+		//These are the values to use for the sliders, they translate to every 35 spots in the data plus first (so 11)
 		var data_tempo = [58.5489,63.1615,64.0473,64.9388,65.6999,66.3466,66.9998,67.6498,68.5204,69.8654,75.605];
 		var data_off = [87.6835,95.7191,98.081,100.4428,102.2548,104.1239,105.8654,107.9074,109.9202,112.7089,124.1281];
 		var data_def = [121.9034,112.472,110.4904,108.83,106.7687,105.2587,103.5013,101.9196,99.8268,96.5487,88.5141];
@@ -760,27 +761,19 @@ p.tag {margin-left:10%;}
 		var data_assists = [37.247,44.7094,47.2222,48.784,50.0,51.1873,53.0201,54.4828,56.3397,58.4416,65.7754];
 		var data_deftype = [-9.2,-2.0,0.1,2.2,3.9,5.1,6.6,8.5,10.1,13.0,20.4];
 		var data_threes = [19.3489,26.7274,28.3843,29.9145,31.3148,32.656,34.2618,35.3615,37.1466,39.9373,47.809];
+	  //Given the sliders, this function figures out what team you'd most like to watch
 	  function scoreit(){
-		var care_pyth = Number($('#pythval').val());
-		var care_tempo = Number($('#tempoval').val());
-		var care_off = Number($('#offval').val());
-		var care_def = Number($('#defval').val());
-		var care_threes = Number($('#threesval').val());
-		var care_assists = Number($('#assistsval').val());
-		var care_efg = Number($('#efgval').val());
-		var care_blocks = Number($('#blocksval').val());
-		var care_deftype = Number($('#deftypeval').val());
-		var care_ftr = Number($('#ftrval').val());
-		var ideal_pyth = data_pyth[care_pyth];
-		var ideal_tempo = data_tempo[care_tempo];
-		var ideal_off = data_off[care_off];
-		var ideal_def = data_def[care_def];
-		var ideal_threes = data_threes[care_threes];
-		var ideal_assists = data_assists[care_assists];
-		var ideal_efg = data_efg[care_efg];
-		var ideal_blocks = data_blocks[care_blocks];
-		var ideal_deftype = data_deftype[care_deftype];
-		var ideal_ftr = data_ftr[care_ftr];
+		//Take the data from the sliders and find the ideal for the user
+		var ideal_pyth = data_pyth[Number($('#pythval').val())];
+		var ideal_tempo = data_tempo[Number($('#tempoval').val())];
+		var ideal_off = data_off[Number($('#offval').val())];
+		var ideal_def = data_def[Number($('#defval').val())];
+		var ideal_threes = data_threes[Number($('#threesval').val())];
+		var ideal_assists = data_assists[Number($('#assistsval').val())];
+		var ideal_efg = data_efg[Number($('#efgval').val())];
+		var ideal_blocks = data_blocks[Number($('#blocksval').val())];
+		var ideal_deftype = data_deftype[Number($('#deftypeval').val())];
+		var ideal_ftr = data_ftr[Number($('#ftrval').val())];
 		var top_team = "Default"
 		var top_score = 100
 		//Go through each of the teams and see which ones matches best based on z-score amongst 10 compontents
@@ -860,7 +853,7 @@ p.tag {margin-left:10%;}
 		$('.team-input').keyup(findvalues);
 	});
 	</script>
-	
+	<!-->This is Google Analytics<!-->
 	<script type="text/javascript">
 
 	var _gaq = _gaq || [];
