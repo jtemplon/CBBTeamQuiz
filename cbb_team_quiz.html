@@ -11,8 +11,9 @@ body {
 #result { display: block; font-size: 50px; margin-top: 20px; height: 60px; }
 #content {margin-left:25%; margin-right:25%; margin-top:5%; background: rgba(255,255,255,0.8);}
 p.intro {margin:30px 40px; font-weight:bold; color:#000000; font-size:23px;}
-p.question {font-weight:bold; color:#000000; font-size:18px}
+.question {color:#000000; font-size:16px}
 p.tag {margin-left:10%;}
+th {text-align:left; color:#000000; font-size:18px; font-weight:bold;}
 </style>
 <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 </head>
@@ -20,16 +21,17 @@ p.tag {margin-left:10%;}
 	<div id="content">
 		<div id="text"><p class="intro">For the following statements select on a scale of 1 <em>(strongly disagree)</em> to 11 <em>(strongly agree)</em> how much the qualities of the team would affect your enjoyment when watching them play:</p>
 		<table style="width:80%; margin-left:auto; margin-right:auto;">
-		<tr><td><p class="question">1. Is Really Good:</p></td><td><input type="range" id="pythval" class="val-input" min="0" max="10" step="1"></td></tr>
-		<tr><td><p class="question">2. Plays Fast:</p></td><td><input type="range" id="tempoval" class="val-input" min="0" max="10" step="1"></td></tr>
-		<tr><td><p class="question">3. Plays Great Offense:</p></td><td><input type="range" id="offval" class="val-input" min="0" max="10" step="1"></td></tr>
-		<tr><td><p class="question">4. Plays Great Defense:</p></td><td><input type="range" id="defval" class="val-input" min="0" max="10" step="1"></td></tr>
-		<tr><td><p class="question">5. Shoots A Lot of Threes:</p></td><td><input type="range" id="threesval" class="val-input" min="0" max="10" step="1"></td></tr>
-		<tr><td><p class="question">6. Moves The Ball Well:</p></td><td><input type="range" id="assistsval" class="val-input" min="0" max="10" step="1"></td></tr>
-		<tr><td><p class="question">7. Shoots The Ball Well:</p></td><td><input type="range" id="efgval" class="val-input" min="0" max="10" step="1"></td></tr>
-		<tr><td><p class="question">8. Blocks A Lot of Shots:</p></td><td><input type="range" id="blocksval" class="val-input" min="0" max="10" step="1"></td></tr>
-		<tr><td><p class="question">9. Plays Man Defense:</p></td><td><input type="range" id="deftypeval" class="val-input" min="0" max="10" step="1"></td></tr>
-		<tr><td><p class="question">10. Plays Games With A Lot of Free Throws:</p></td><td><input type="range" id="ftrval" class="val-input" min="0" max="10" step="1"></td></tr>
+		<tr><th>Questions</th><th>Select from 1 - 11</th></tr>
+		<tr><td><span class="question">1. Is Really Good:</span></td><td><input type="range" id="pythval" class="val-input" min="0" max="10" step="1"></td></tr>
+		<tr><td><span class="question">2. Plays Fast:</span></td><td><input type="range" id="tempoval" class="val-input" min="0" max="10" step="1"></td></tr>
+		<tr><td><span class="question">3. Plays Great Offense:</span></td><td><input type="range" id="offval" class="val-input" min="0" max="10" step="1"></td></tr>
+		<tr><td><span class="question">4. Plays Great Defense:</span></td><td><input type="range" id="defval" class="val-input" min="0" max="10" step="1"></td></tr>
+		<tr><td><span class="question">5. Shoots A Lot of Threes:</span></td><td><input type="range" id="threesval" class="val-input" min="0" max="10" step="1"></td></tr>
+		<tr><td><span class="question">6. Moves The Ball Well:</span></td><td><input type="range" id="assistsval" class="val-input" min="0" max="10" step="1"></td></tr>
+		<tr><td><span class="question">7. Shoots The Ball Well:</span></td><td><input type="range" id="efgval" class="val-input" min="0" max="10" step="1"></td></tr>
+		<tr><td><span class="question">8. Blocks A Lot of Shots:</span></td><td><input type="range" id="blocksval" class="val-input" min="0" max="10" step="1"></td></tr>
+		<tr><td><span class="question">9. Plays Man Defense:</span></td><td><input type="range" id="deftypeval" class="val-input" min="0" max="10" step="1"></td></tr>
+		<tr><td><span class="question">10. Plays Games With A Lot of Free Throws:</span></td><td><input type="range" id="ftrval" class="val-input" min="0" max="10" step="1"></td></tr>
 		</table>
 		<button id="submit-button" style="font-size: 20px; background: #ffa500; color: #333; border: 0; padding: 15px; display: block; margin: 20px auto; text-align: center; border-radius: 5px; font-family: proxima-nova, bitter, sans-serif;">FIND MY TEAM</button>
 		<div class="result-label" style="font-size: 30px; display: block; margin: 20px auto; text-align: center;">You should follow: <div id="result"></div></div>
